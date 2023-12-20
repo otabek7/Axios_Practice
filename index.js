@@ -50,7 +50,7 @@ app.post("/", async (req, res) => {
     // res.render("index.ejs", { activity: response.data });
   } catch (error) {
     console.error("Failed to make request:", error.message);
-    res.status(404).send("No activities that match your criteria.");
+    res.render("index.ejs", {error: "No activities that match your criteria."});
   }
 });
 // Step 3: If you get a 404 error (resource not found) from the API request.
