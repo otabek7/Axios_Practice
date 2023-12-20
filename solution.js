@@ -32,8 +32,10 @@ app.post("/", async (req, res) => {
     );
     const result = response.data;
     console.log(result);
+    const filler = result[Math.floor(Math.random() * result.length)];
+    console.log("the filler is", filler);
     res.render("solution.ejs", {
-      data: result[Math.floor(Math.random() * result.length)],
+      data: filler,
     });
   } catch (error) {
     console.error("Failed to make request:", error.message);

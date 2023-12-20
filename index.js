@@ -42,12 +42,11 @@ app.post("/", async (req, res) => {
       `https://bored-api.appbrewery.com/filter?type=${type}&participants=${participants}`
     );
     const result = response.data;
-    
+    const filler = result[Math.floor(Math.random() * result.length)];
+    console.log("the filler is", filler);
     res.render("index.ejs", {
-      data: result[Math.floor(Math.random() * result.length)],
+      data: filler,
     });
-    console.log("the result is", result[Math.floor(Math.random() * result.length)],
-    );
     // res.render("index.ejs", { activity: response.data });
   } catch (error) {
     console.error("Failed to make request:", error.message);
